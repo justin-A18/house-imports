@@ -1,0 +1,90 @@
+---
+const data = [{
+	id: 1,
+	title: 'Precios Inigualables',
+	description: ' Obtén productos de alta calidad a los mejores precios del mercado. Nuestra conexión directa con proveedores en China nos permite ofrecer precios que son difíciles de superar.'
+},{
+	id: 2,
+	title: 'Variedad de Productos',
+	description: 'Tenemos todo lo que necesitas en un solo lugar. Desde artículos de mini market hasta juguetes y cuadernos, ofrecemos una amplia gama de productos para satisfacer todas tus necesidades.'
+},{
+	id: 3,
+	title: 'Calidad Garantizada',
+	description: 'Nos aseguramos de que cada producto cumpla con nuestros estrictos estándares de calidad. Inspeccionamos cada artículo antes de su envío para garantizar que recibas solo lo mejor.'
+},{
+	id: 4,
+	title: 'Envío Nacional',
+	description: 'Distribuimos nuestros productos a cualquier parte del país, garantizando una entrega rápida y segura. Puedes confiar en nosotros para hacer llegar tus productos en perfectas condiciones.'
+}];
+---
+
+<div
+	id='accordion-collapse'
+	data-accordion='collapse'
+	class='w-full'>
+	{data.map((item) => (
+		<h2 data-accordion-title={`accordion-collapse-heading-${item.id}`} class="title">
+			<button
+				type='button'
+				class='flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-b-0 border-gray-200 rounded-t-xl focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 gap-3'
+				data-accordion-target={`#accordion-collapse-body-${item.id}`}
+				aria-expanded='true'
+				aria-controls={`accordion-collapse-body-${item.id}`}>
+				<span>{item.title}</span>
+				<svg
+					data-accordion-icon
+					class='w-3 h-3 rotate-180 shrink-0'
+					aria-hidden='true'
+					xmlns='http://www.w3.org/2000/svg'
+					fill='none'
+					viewBox='0 0 10 6'>
+					<path
+						stroke='currentColor'
+						stroke-linecap='round'
+						stroke-linejoin='round'
+						stroke-width='2'
+						d='M9 5 5 1 1 5'
+					></path>
+				</svg>
+			</button>
+		</h2>
+		<div
+			id={`accordion-collapse-body-${item.id}`}
+			class='hidden'
+			aria-labelledby={`accordion-collapse-heading-${item.id}`}>
+			<div
+				class='p-5 border border-b-0 border-gray-200 dark:border-gray-700 dark:bg-gray-900'>
+				<p class='mb-2 text-gray-700'>{item.description}</p>
+			</div>
+		</div>)
+		)}
+</div>
+
+<script>
+	document.addEventListener('DOMContentLoaded', () => {
+  const buttons = document.querySelectorAll<HTMLButtonElement>('[data-accordion-target]');
+	const button = document.querySelectorAll<HTMLHeadingElement>('[data-accordion-title]');
+
+  buttons.forEach((button) => {
+    button.addEventListener('click', (event) => {
+      const buttonElement = event.currentTarget as HTMLButtonElement;
+      const targetId = buttonElement.getAttribute('data-accordion-target');
+      const targetElement = targetId ? document.querySelector<HTMLElement>(targetId) : null;
+
+      if (targetElement) {
+        const isExpanded = buttonElement.getAttribute('aria-expanded') === 'true';
+        buttonElement.setAttribute('aria-expanded', String(!isExpanded));
+				buttonElement.classList.toggle('text-black');
+
+        targetElement.classList.toggle('hidden');
+
+        const icon = buttonElement.querySelector<SVGElement>('[data-accordion-icon]');
+        if (icon) {
+          icon.classList.toggle('rotate-180');
+        }
+      }
+    });
+  });
+});
+
+</script>

@@ -1,0 +1,14 @@
+---
+
+interface Props {
+	title: string;
+	to: string;
+	className?: string;
+}
+	
+const {title,to,className} = Astro.props;
+---
+
+<li class="font-medium relative before:content-[''] before:w-full before:h-0.5 before:absolute before:bottom-0 before:bg-black before:scale-0 before:transition-all before:duration-500 hover:before:scale-100 before:origin-left">
+	<a href={to} class={className}>{title}</a>
+</li>

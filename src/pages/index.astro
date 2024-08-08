@@ -1,0 +1,24 @@
+---
+import NavBar from '../components/navbar/Navbar.astro';
+
+import SectionServices from '../components/sections/SectionServices.astro';
+import SectionProducts from '../components/sections/SectionProducts.astro';
+import SectionAboutUs from '../components/sections/SectionAboutUs.astro';
+import SectionContact from '../components/sections/SectionContact.astro';
+import SectionInfo from '../components/sections/SectionInfo.astro';
+
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title='House Imports'>
+	<NavBar />
+
+	<main
+		class='w-[90%] min-h-[calc(100vh-5rem)] flex items-center flex-col gap-8 md:w-full px-0 sm:px-4 lg:px-8 mx-auto max-w-[1300px] py-4'>
+		<SectionInfo />
+		<SectionServices />
+		<SectionProducts />
+		<SectionAboutUs /> 
+		<SectionContact /> 
+	</main>
+</Layout>

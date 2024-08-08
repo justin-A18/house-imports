@@ -1,0 +1,21 @@
+---
+interface Props {
+	title: string;
+	description: string;
+	image: string;
+}
+
+const { description, image, title } = Astro.props;
+---
+
+<article
+	class='flex items-center flex-col w-[300px] min-h-[180px] gap-1 bg-amber-200 p-4 rounded-md'>
+	<img
+		class='size-10'
+		src={image}
+		alt={title}
+	/>
+
+	<h3 class='text-xl font-bold text-center'>{title}</h3>
+	<p class='text-gray-800'>{description}</p>
+</article>

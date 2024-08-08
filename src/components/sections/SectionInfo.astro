@@ -1,0 +1,39 @@
+---
+import CustomLink from '../navbar/CustomLink.astro';
+---
+
+<section
+	class='w-full h-full grid md:grid-cols-2 justify-center gap-8 md:gap-0'>
+	<article class='space-y-4 flex flex-col justify-center'>
+		<div class='space-y-2'>
+			<h1
+				class='text-4xl lg:text-5xl font-bold animate__animated animate__fadeInDown'
+				>House Imports</h1
+			>
+			<p
+				class='text-base lg:text-lg text-gray-500 animate__animated animate__fadeInUp'>
+				Bienvenido a House Import. Nos especializamos en la importación de una
+				amplia variedad de productos directamente desde China, garantizando
+				precios bajos y alta calidad. Desde artículos de mini market hasta
+				juguetes y cuadernos, tenemos todo lo que necesitas, ya sea al por mayor
+				o al por menor.
+			</p>
+		</div>
+
+		<div class='animate__animated animate__fadeInLeft'>
+			<CustomLink
+				title='Contactanos'
+				to='#contact'
+				className='inline-block'
+			/>
+		</div>
+	</article>
+
+	<div class='w-full h-60 md:h-full animate__animated animate__fadeInRight'>
+		<img
+			class='w-full h-full object-cover object-top'
+			src='/image-1.png'
+			alt='container'
+		/>
+	</div>
+</section>

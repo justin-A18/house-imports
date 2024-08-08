@@ -1,0 +1,33 @@
+---
+import LinkItem from './LinkItem.astro';
+
+const links = [
+	{
+		title: 'Inicio',
+		to: '#home',
+	},
+	{
+		title: 'Servicios',
+		to: '#services',
+	},
+	{
+		title: 'Productos',
+		to: '#products',
+	},
+	{
+		title: '¿Porque nosotros?',
+		to: '#about-us',
+	}
+];
+---
+
+<ul class="hidden items-center gap-4 md:flex">
+	{
+		links.map((link) => (
+			<LinkItem
+				title={link.title}
+				to={link.to}
+			/>
+		))
+	}
+</ul>

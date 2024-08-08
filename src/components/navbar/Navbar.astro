@@ -1,0 +1,18 @@
+---
+import CustomLink from './CustomLink.astro';
+import LinksItems from './LinksItems.astro';
+import Logo from './Logo.astro';
+---
+
+<header
+	class='w-full min-h-20 p-4 max-w-[1300px] mx-auto sticky top-0 bg-white z-10'>
+	<nav class='flex justify-between items-center w-full h-full'>
+		<Logo />
+		<LinksItems />
+
+		<CustomLink
+			title='Contactanos'
+			to='#contact'
+		/>
+	</nav>
+</header>

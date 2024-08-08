@@ -1,0 +1,30 @@
+---
+import Card from '../card/Card.astro';
+---
+
+<section
+	class='w-full min-h-screen flex items-center flex-col justify-center h-full space-y-8'
+	id='services'>
+	<h2 class='text-4xl font-bold'>Nuestros Servicios</h2>
+
+	<div class='flex flex-wrap items-center justify-center gap-8'>
+		<Card
+			image='/ship.svg'
+			
+			title='Importación Directa desde China'
+			description='Nos encargamos de todo el proceso de importación, desde la selección de proveedores hasta la entrega de productos en cualquier parte del país.'
+		/>
+
+		<Card
+			image='/truck.svg'
+			title='Distribución Nacional'
+			description='Ofrecemos servicios de distribución mayorista y minorista a nivel nacional, asegurando que los productos lleguen a su destino de manera rápida y segura.'
+		/>
+
+		<Card
+			image='/document.svg'
+			title='Asesoría en Importación'
+			description='Brindamos consultoría personalizada para empresas que desean importar productos desde China, ayudándolas a elegir los mejores proveedores y gestionar el proceso de importación.'
+		/>
+	</div>
+</section>
